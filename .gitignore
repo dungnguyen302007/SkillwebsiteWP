@@ -1,0 +1,65 @@
+# Git Ignore
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Text Editor
+*.swp
+*.swo
+*~
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+*.old
+backup-*
+*.sql.backup
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Logs
+*.log
+logs/
+
+# Screenshots (optional - uncomment if you don't want to commit screenshots)
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+
+# Compiled files
+*.pyc
+__pycache__/
+*.pyo
+*.class
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node modules (if needed)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Build outputs
+dist/
+build/
+out/
