@@ -11,7 +11,8 @@ priority: [high]
 ## 📌 TÓM TẮT PLUGIN
 
 Plugin bảo mật WordPress với các tính năng:
-- ✅ **Quét file lạ** - Phát hiện mã đáng ngờ
+- ✅ **Quét file lạ** - Phát hiện mã đáng ngờ với progress bar
+- ✅ **Hành động hàng loạt** - Xóa/cách ly/đánh dấu an toàn nhiều file
 - ✅ **Giám sát plugin** - Thông báo khi plugin mới được cài
 - ✅ **Giám sát user** - Phát hiện user mới được tạo
 - ✅ **Cảnh báo email** - Gửi thông báo khi có thay đổi
@@ -86,6 +87,22 @@ Vào **Green Security → Dashboard** để xem:
 - Quét toàn bộ uploads, themes, plugins
 - Tìm mã đáng ngờ (eval, base64_decode, shell_exec...)
 - Mất nhiều thời gian hơn nhưng toàn diện
+
+**Giao diện Progress Bar:**
+- Hiển thị phần trăm quét (0-100%)
+- Thống kê real-time: files scanned, threats found, folders scanned
+- Đếm thời gian quét
+- Hiệu ứng gradient và animation
+
+**Hành động với file đe dọa:**
+- **Xóa (Delete):** Xóa vĩnh viễn khỏi server
+- **Cách ly (Quarantine):** Di chuyển vào thư mục cách ly
+- **Đánh dấu an toàn (Mark Safe):** Thêm vào whitelist
+
+**Hành động hàng loạt (Bulk Actions):**
+- Chọn tất cả hoặc chọn từng file
+- Xóa/cách ly/đánh dấu an toàn nhiều file cùng lúc
+- Đếm số file đã chọn
 
 ### Giám sát Plugin
 
@@ -206,8 +223,13 @@ _files
 
 | Tính năng | Trạng thái | Mô tả |
 |-----------|------------|-------|
+| Progress Bar | ✅ | Hiển thị phần trăm quét real-time |
 | Quick Scan | ✅ | Quét nhanh trong vài giây |
 | Full Scan | ✅ | Quét toàn diện mã đáng ngờ |
+| Bulk Actions | ✅ | Xóa/cách ly nhiều file cùng lúc |
+| Delete File | ✅ | Xóa file đe dọa |
+| Quarantine | ✅ | Di chuyển vào thư mục cách ly |
+| Mark Safe | ✅ | Đánh dấu file là an toàn |
 | Plugin Monitor | ✅ | Theo dõi kích hoạt/vô hiệu hóa |
 | User Monitor | ✅ | Theo dõi user mới và quyền |
 | Email Alerts | ✅ | Gửi cảnh báo qua email |
@@ -219,6 +241,28 @@ _files
 - **Repository:** SkillwebsiteWP/green-security/
 - **Admin Menu:** Green Security
 - **Flatsome Compatible:** ✅
+
+## ⚙️ AJAX HANDLERS
+
+Plugin cung cấp các AJAX actions:
+
+| Action | Mô tả |
+|--------|-------|
+| `green_security_quick_scan` | Quét nhanh uploads |
+| `green_security_full_scan` | Quét toàn diện |
+| `green_security_delete_file` | Xóa file đe dọa |
+| `green_security_quarantine_file` | Cách ly file |
+| `green_security_delete_all_threats` | Xóa tất cả mối đe dọa |
+| `green_security_mark_safe` | Đánh dấu an toàn |
+
+## 📁 QUARANTINE FOLDER
+
+Files được cách ly tại:
+```
+wp-content/green-security-quarantine/
+```
+
+Mỗi file cách ly có thêm index.php để bảo mật.
 
 ## 🚀 CÁCH DÙNG CHO WEBSITE MỚI
 
